@@ -25,8 +25,8 @@ class PostsNew extends Component {
           component={this.renderField}
         />
         <Field
-          name="tags"
-          label="Tags"
+          name="categories"
+          label="Categories"
           component={this.renderField}
         />
         <Field
@@ -39,6 +39,22 @@ class PostsNew extends Component {
   }
 }
 
+function validate(values){
+  const errors = {};
+  if (!values.title){
+    errors.title= "Enter a title!";
+  }
+  if (!values.categories){
+    errors.categories = "Write categories!";
+  }
+  if (!values.content){
+    errors.content = "Write some content!";
+  }
+// if errors is empty, form is fine to submit
+  return errors;
+}
+
 export default reduxForm({
+  validate,
   form: 'PostsNewForm'
 })(PostsNew);
