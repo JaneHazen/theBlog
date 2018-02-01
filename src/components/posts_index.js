@@ -37,7 +37,7 @@ class PostsIndex extends Component {
 }
 
 function mapStateToProps(state){
-  return{ posts: state.posts  }
+  return{ posts: state.posts.all  }
 }
 
 export default connect(mapStateToProps,{ fetchPosts })(PostsIndex);
