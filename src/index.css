@@ -1,0 +1,15 @@
+.components {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.postcontent {
+  padding-left: 50px;
+  padding-top: 20px;
+}
+
+.categories {
+  color: #f5acac;
+  font-style: italic;
+  padding: 20px;
+}
