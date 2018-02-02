@@ -10,24 +10,27 @@ class PostsIndex extends Component {
   }
 
   renderPosts(){
-    _.map(this.props.posts, post => {
+    return _.map(this.props.posts, post => {
       return (
-        <li className="list-group-item">
-          {post.title}
+        <li className="list-group-item" key={post.id}>
+          <Link to={`/posts/${post.id}`}>
+            {post.title}
+          </Link>
         </li>
-      )
-    })
+      );
+    });
   }
 
   render(){
     return(
-      <div>
-        <div className="text-xs-right">
+      <div className="components">
+        <div className="text-xs-left">
           <Link className="btn btn-primary" to="/posts/new">
-            Add a Post
+            Add a Blog
           </Link>
         </div>
-        <h3>Posts</h3>
+        <br/>
+        <h3>Blogs:</h3>
         <ul className="list-group">
           {this.renderPosts()}
         </ul>
@@ -37,7 +40,7 @@ class PostsIndex extends Component {
 }
 
 function mapStateToProps(state){
-  return{ posts: state.posts.all  }
+  return{ posts: state.posts }
 }
 
 export default connect(mapStateToProps,{ fetchPosts })(PostsIndex);

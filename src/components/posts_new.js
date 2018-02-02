@@ -34,7 +34,9 @@ class PostsNew extends Component {
     const {handleSubmit} = this.props;
 
     return(
-      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+      <form  className="components"
+          onSubmit={handleSubmit(this.onSubmit.bind(this))}
+      >
         <Field
           name="title"
           label="Title"
